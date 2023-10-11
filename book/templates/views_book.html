@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Book</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Book Details</h1>
+        <div class="mt-4">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">{{ book.name }}</h3>
+                </div>
+                <div class="card-body">
+                    <p><strong>Description:</strong> {{ book.description }}</p>
+                    <p><strong>Count:</strong> {{ book.count }}</p>
+                    <p><strong>Author:</strong>
+                        {% for author in book.authors.all %}
+                            {{ author.name }} {{ author.surname }}<br>
+                        {% endfor %}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <a href="{% url 'all_books'  %}" class="btn btn-primary mt-3">Back to List</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
