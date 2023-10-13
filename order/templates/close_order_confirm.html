@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirm Order Closure</title>
+</head>
+<body>
+    <h1>Confirm Order Closure</h1>
+    <p>Do you want to close the order with ID: {{ order.id }}?</p>
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-danger">Close Order</button>
+    </form>
+</body>
+</html>

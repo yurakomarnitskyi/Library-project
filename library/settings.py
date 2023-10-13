@@ -45,7 +45,7 @@ INSTALLED_APPS = [
 AUTH_USER_MODEL = 'authentication.CustomUser'
 
 AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
+    'django.contrib.auth.backends.ModelBackend', 
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
@@ -171,3 +171,5 @@ except ImportError:
 
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 LOGIN_REDIRECT_URL = 'register'
+
+

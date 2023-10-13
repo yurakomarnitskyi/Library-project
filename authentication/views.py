@@ -4,58 +4,73 @@ from .models import CustomUser
 from django.contrib.auth import logout
 from django.contrib import messages
 from django.contrib.auth.hashers import check_password
+from .forms import RegistrationForm, LoginForm, LogoutForm
 
 
 def register(request):
     if request.method == 'POST':
-        email = request.POST['email']
-        password = request.POST['password']
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
-        role = request.POST['role']
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            password = form.cleaned_data['password']
+            first_name = form.cleaned_data['first_name']
+            last_name = form.cleaned_data['last_name']
+            role = form.cleaned_data['role']
 
-        # Створення користувача на основі введених даних
-        user = CustomUser.create(email, password, first_name, last_name, role)
-        if user:
-            # Вхід користувача після реєстрації
-            user = authenticate(request, email=email, password=password)
-            if user:
-                login(request, user)
-                messages.success(request, 'Registration successful!')
-                return redirect('home')  # Перенаправлення на головну сторінку
-    return render(request, 'register.html')
+            # Перевірка, чи користувач з таким email-ом вже існує
+            if CustomUser.objects.filter(email=email).exists():
+                messages.error(request, 'User with this email already exists.')
+            else:
+                user = CustomUser.create(email, password, first_name, last_name, role)
+                if user:
+                    user = authenticate(request, email=email, password=password)
+                    if user:
+                        login(request, user)
+                        messages.success(request, 'Registration successful!')
+                        return redirect('home')
+        else:
+            messages.error(request, 'Registration failed. Please check the provided information.')
+    else:
+        form = RegistrationForm()
 
-
+    return render(request, 'register.html', {'form': form})
 
 
 def user_login(request):
     if request.method == 'POST':
-        email = request.POST['email']
-        password = request.POST['password']
-
-        try:
-            user = CustomUser.objects.get(email=email)
-            print(user)
-            print(type(str(user)))
-            print(type(password))
-
-            print(password)
-            print(password==str(user))
-
-            if str(user) == password:
+        form = LoginForm(request.POST)
+        if form.is_valid():  
+           email = form.cleaned_data['email']
+           password = form.cleaned_data['password']
+           
+           user = authenticate(request, email=email, password=password)
+           
+           if user is not None:
                 login(request, user)
-                return redirect('/book/')
+                return redirect('/book/') 
+                
+        #    else:
+        #     messages.error(request, 'User is not register, please register accaunt!')
+    else:
+        form = LoginForm()
+    
+    return render(request, 'login.html', {'form': form })
 
-        except ValueError:
-            print(123)
-
-
-    return render(request, 'login.html')
 
 
 def user_logout(request):
-    logout(request)
-    return redirect('login') 
+    if request.method == 'POST':
+        form = LogoutForm(request.POST)
+        if form.is_valid():
+            # Виконуємо вихід користувача
+            logout(request)
+            return redirect('login')  
+    else:
+        form = LoginForm()
+    
+    return render(request, 'logout_template.html', {'form': form})
+
+
 
 def show_all_users(request):
     users = CustomUser.objects.all()

@@ -10,18 +10,9 @@
         <h1>Remove Unused Authors</h1>
         <form method="post">
             {% csrf_token %}
-            <ul>
-                {% for author in unused_authors %}
-                <li>
-                    <div class="custom-control custom-checkbox">
-                        <input type="checkbox" class="custom-control-input" id="author{{ author.id }}" name="authors_to_remove" value="{{ author.id }}">
-                        <label class="custom-control-label" for="author{{ author.id }}">{{ author.name }} {{ author.surname }}</label>
-                    </div>
-                </li>
-                {% endfor %}
-            </ul>
+            {{ form.as_p }}
             <button type="submit" class="btn btn-danger">Remove Selected Authors</button>
-            <a href="{% url 'author_views' %}" class="btn btn-secondary">Cancel</a>
+            <a href="{% url 'author_views' %}" class="btn btn-secondary">Cancel</a>  
         </form>
     </div>
 

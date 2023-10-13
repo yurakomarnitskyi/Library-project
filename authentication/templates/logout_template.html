@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logout</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center mt-5">
+                <h1>Logout</h1>
+                <p class="lead">Are you sure you want to log out?</p>
+                <form action="logout/" method="post">
+                    {% csrf_token %}
+                    <a href="{% url 'user_login' %}" class="btn btn-danger">Logout</a>
+                    <a href="{% url 'show_all_users' %}" class="btn btn-secondary">Cancel</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

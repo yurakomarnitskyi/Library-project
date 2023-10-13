@@ -3,6 +3,7 @@ from django.db import models, DataError
 
 from authentication.models import CustomUser
 from book.models import Book
+import datetime
 
 
 class Order(models.Model):
@@ -25,7 +26,7 @@ class Order(models.Model):
     user = models.ForeignKey(CustomUser, on_delete=models.CASCADE, default=None)
     created_at = models.DateTimeField(auto_now_add=True)
     end_at = models.DateTimeField(default=None, null=True, blank=True)
-    plated_end_at = models.DateTimeField(default=None)
+    plated_end_at = models.DateTimeField(default=datetime.datetime.now())
 
     def __str__(self):
         """
