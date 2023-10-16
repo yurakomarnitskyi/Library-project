@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'author',
     'book',
     'order',
+    'rest_framework',
+    'api'
+    
 ]
 
 AUTH_USER_MODEL = 'authentication.CustomUser'
