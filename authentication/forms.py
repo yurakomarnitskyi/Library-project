@@ -17,17 +17,21 @@ def validate_password(value):
    
 
 class RegistrationForm(forms.Form):
-    email = forms.EmailField()
-    password = forms.CharField(widget=forms.PasswordInput, validators=[validate_password])
+    first_name = forms.CharField(max_length=30, required=True)
+    last_name = forms.CharField(max_length=30, required=True)
+    middle_name = forms.CharField(max_length=30, required=True)
+    email = forms.EmailField(max_length=100, required=True)
+    password = forms.CharField(max_length=30, required=True)
     first_name = forms.CharField()
     last_name = forms.CharField()
-    role = forms.ChoiceField(choices=[('user', 'User'), ('admin', 'Admin')])
+    role = forms.ChoiceField(choices=[('user', 'User'), ('admin', 'Admin')], required=True)
     
     
 
 class LoginForm(forms.Form):
-    email = forms.EmailField()
-    password = forms.CharField(widget=forms.PasswordInput)
+    email = forms.EmailField(max_length=100)
+    password = forms.CharField(widget=forms.PasswordInput, validators=[validate_password])
+
     
     
 class LogoutForm(forms.Form):

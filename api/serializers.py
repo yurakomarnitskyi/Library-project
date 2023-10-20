@@ -21,3 +21,9 @@ class OrderSerializer(serializers.ModelSerializer):
         model = Order
         fields = '__all__'
         
+class BookSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Book
+        fields = '__all__'
+        
+        

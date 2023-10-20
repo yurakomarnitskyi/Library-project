@@ -3,8 +3,9 @@ from django.contrib.auth import authenticate, login
 from .models import CustomUser
 from django.contrib.auth import logout
 from django.contrib import messages
-from django.contrib.auth.hashers import check_password
 from .forms import RegistrationForm, LoginForm, LogoutForm
+from django.contrib.auth.models import User
+
 
 
 def register(request):
@@ -36,25 +37,47 @@ def register(request):
     return render(request, 'register.html', {'form': form})
 
 
+# def user_login(request):
+#     if request.method == 'POST':
+#         form = LoginForm(request.POST)
+#         if form.is_valid():  
+#            email = form.cleaned_data['email']
+#            password = form.cleaned_data['password']
+           
+#            user = authenticate(request, email=email, password=password)
+
+           
+#            if user is not None:
+#                 login(request, user)
+#                 return redirect('/book/') 
+                
+#            else:
+#             messages.error(request, 'User is not register, please register accaunt!')
+#     else:
+#         form = LoginForm()
+    
+#     return render(request, 'login.html', {'form': form })
+
+from django.contrib import messages
+
 def user_login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
-        if form.is_valid():  
-           email = form.cleaned_data['email']
-           password = form.cleaned_data['password']
-           
-           user = authenticate(request, email=email, password=password)
-           
-           if user is not None:
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            password = form.cleaned_data['password']
+            user = authenticate(request, email=email, password=password)
+            if user is not None:
                 login(request, user)
-                return redirect('/book/') 
-                
-        #    else:
-        #     messages.error(request, 'User is not register, please register accaunt!')
+                return redirect('/book/')
+            else:
+    
+               print("Authentication failed. Invalid email or password.")
+         
     else:
         form = LoginForm()
-    
-    return render(request, 'login.html', {'form': form })
+
+    return render(request, 'login.html', {'form': form})
 
 
 
