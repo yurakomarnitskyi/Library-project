@@ -98,7 +98,7 @@ DATABASE = "simpledbmamager"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'test_dbdb',
+        'NAME': 'team-yura-new',
         'USER': 'postgres',
         'PASSWORD': 'postgres',
         'HOST': 'localhost',
