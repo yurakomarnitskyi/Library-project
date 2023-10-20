@@ -9,8 +9,10 @@ import time
 class LoginTest(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome()
-        self.driver.implicitly_wait(15)  # Implicit wait for 15 seconds
 
+        self.driver.implicitly_wait(15) 
+
+    
     def test_login_valid_credentials(self):
         driver = self.driver
         driver.get("http://127.0.0.1:8000/")
@@ -24,6 +26,8 @@ class LoginTest(unittest.TestCase):
         password_input = wait.until(EC.presence_of_element_located((By.NAME, "password")))
         password_input.send_keys("yura2001")
         
+
+
 
         login_submit_button = wait.until(EC.presence_of_element_located((By.XPATH, '//button[@type="submit"]')))
         login_submit_button.click()
@@ -40,10 +44,13 @@ class LoginTest(unittest.TestCase):
         
         self.assertTrue(wait.until(EC.presence_of_element_located((By.NAME, "email"))))
     
+
+
     @unittest.expectedFailure
     def test_login_not_valid_credentials(self):
         driver = self.driver
         driver.get("http://127.0.0.1:8000/")
+
        
         wait = WebDriverWait(driver, 10)
         time.sleep(4)
@@ -69,3 +76,4 @@ class LoginTest(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
