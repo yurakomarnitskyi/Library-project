@@ -153,28 +153,38 @@ class CustomUser(AbstractBaseUser):
             return True
         return False
 
+    # @staticmethod
+    # def create(email, password, first_name=None, middle_name=None, last_name=None):
+    #     """
+    #     :param first_name: first name of a user
+    #     :type first_name: str
+    #     :param middle_name: middle name of a user
+    #     :type middle_name: str
+    #     :param last_name: last name of a user
+    #     :type last_name: str
+    #     :param email: email of a user
+    #     :type email: str
+    #     :param password: password of a user
+    #     :type password: str
+    #     :return: a new user object which is also written into the DB
+    #     """
+    #     if len(first_name) <= 20 and len(middle_name) <= 20 and len(last_name) <= 20 and len(email) <= 100 and len(
+    #             email.split('@')) == 2 and len(CustomUser.objects.filter(email=email)) == 0:
+    #         custom_user = CustomUser(email=email, password=password, first_name=first_name, middle_name=middle_name,
+    #                                  last_name=last_name)
+    #         custom_user.save()
+    #         return custom_user
+    #     return None
+    
     @staticmethod
     def create(email, password, first_name=None, middle_name=None, last_name=None):
-        """
-        :param first_name: first name of a user
-        :type first_name: str
-        :param middle_name: middle name of a user
-        :type middle_name: str
-        :param last_name: last name of a user
-        :type last_name: str
-        :param email: email of a user
-        :type email: str
-        :param password: password of a user
-        :type password: str
-        :return: a new user object which is also written into the DB
-        """
-        if len(first_name) <= 20 and len(middle_name) <= 20 and len(last_name) <= 20 and len(email) <= 100 and len(
-                email.split('@')) == 2 and len(CustomUser.objects.filter(email=email)) == 0:
-            custom_user = CustomUser(email=email, password=password, first_name=first_name, middle_name=middle_name,
-                                     last_name=last_name)
-            custom_user.save()
-            return custom_user
-        return None
+      if len(first_name) <= 20 and len(middle_name) <= 20 and len(last_name) <= 20 and len(email) <= 100 and len(email.split('@')) == 2 and len(CustomUser.objects.filter(email=email)) == 0:
+        custom_user = CustomUser(email=email, first_name=first_name, middle_name=middle_name, last_name=last_name)
+        custom_user.set_password(password)
+        custom_user.save()
+        return custom_user
+      return None
+
 
     def to_dict(self):
         """
