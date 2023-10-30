@@ -21,9 +21,7 @@ def filter_books(request):
     
     
     if author or title:
-        books = Book.objects.filter(
-            Q(authors__name__icontains=author) | Q(name__icontains=title)
-        )
+        books = Book.objects.filter(Q(authors__name__icontains=author) | Q(name__icontains=title))
     else:
         books = Book.objects.all()
     

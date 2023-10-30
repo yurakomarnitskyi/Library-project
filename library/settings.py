@@ -49,9 +49,17 @@ AUTH_USER_MODEL = 'authentication.CustomUser'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend', 
+    'authentication.auth_backends.EmailBackend'
+
+
+   
+
 ]
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

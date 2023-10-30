@@ -28,7 +28,7 @@ def register(request):
                     if user:
                         login(request, user)
                         messages.success(request, 'Registration successful!')
-                        return redirect('home')
+                        return redirect('user_login')
         else:
             messages.error(request, 'Registration failed. Please check the provided information.')
     else:
@@ -37,28 +37,6 @@ def register(request):
     return render(request, 'register.html', {'form': form})
 
 
-# def user_login(request):
-#     if request.method == 'POST':
-#         form = LoginForm(request.POST)
-#         if form.is_valid():  
-#            email = form.cleaned_data['email']
-#            password = form.cleaned_data['password']
-           
-#            user = authenticate(request, email=email, password=password)
-
-           
-#            if user is not None:
-#                 login(request, user)
-#                 return redirect('/book/') 
-                
-#            else:
-#             messages.error(request, 'User is not register, please register accaunt!')
-#     else:
-#         form = LoginForm()
-    
-#     return render(request, 'login.html', {'form': form })
-
-from django.contrib import messages
 
 def user_login(request):
     if request.method == 'POST':
