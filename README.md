@@ -11,22 +11,22 @@ You can also view the list of registered users
 You can add a book as an order and delete it 
 # Installation
 Clone the repository:
-git clone https://github.com/yurakomarnitskyi/Library-project
-cd library-project
+ ```git clone https://github.com/yurakomarnitskyi/Library-project ```
+ ```cd library-project ```
 
 Create a virtual environment:
 
-python -m venv venv
+ ```python -m venv venv ```
 Activate the virtual environment:
 
-source venv/bin/activate
+ ```source venv/bin/activate ```
 Install the dependencies:
 
-pip install -r requirements.txt
+ ```pip install -r requirements.txt ```
 Usage
 Run the Django application:
-docker-compose -p library up
-Open your web browser and navigate to http://localhost:8000
+ ```docker-compose -p library up ```
+Open your web browser and navigate to  ```http://localhost:8000 ```
 
 API Endpoints
 
