@@ -1,15 +1,15 @@
-Library
+# Library project
 
 Django
 PostgreSQl
 HTML/CSS
 Bootsraap
 
-Features
+# Features
 From the very beginning, this project allows the user to register. Then the user has the opportunity to see the books and their authors. It is possible to create a new author.
 You can also view the list of registered users 
 You can add a book as an order and delete it 
-Installation
+# Installation
 Clone the repository:
 git clone https://github.com/yurakomarnitskyi/Library-project
 cd library-project
