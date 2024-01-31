@@ -55,17 +55,14 @@ docker-compose -p library up
 ```http://127.0.0.1:8000/api/user/1/``` PUT change user info
 ```http://127.0.0.1:8000/api/user/```  POST create user
 ```http://127.0.0.1:8000/api/user/50/``` DELETE user method
-
 ```http://127.0.0.1:8000/api/author/``` GET author 
 ```http://127.0.0.1:8000/api/author/``` POST add new author
 ```http://127.0.0.1:8000/api/author/38/``` PUT change author info 
 ```http://127.0.0.1:8000/api/author/38/``` DELETE author
-
 ```http://127.0.0.1:8000/api/book/``` GET book 
 ```http://127.0.0.1:8000/api/book/``` POST add new book
 ```http://127.0.0.1:8000/api/book/38/``` PUT change book info 
 ```http://127.0.0.1:8000/api/book/38/``` DELETE book
-
 ```http://127.0.0.1:8000/api/order/``` GET order
 ```http://127.0.0.1:8000/api/order/``` POST add new order
 ```http://127.0.0.1:8000/api/order/38/``` DELETE order
