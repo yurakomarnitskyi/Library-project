@@ -52,7 +52,8 @@ docker-compose -p library up
 ```
 ## API Endpoint 
 # User Management:
-```http://127.0.0.1:8000/api/user/```GET user 
+```http://127.0.0.1:8000/api/user/
+```GET user 
 ```http://127.0.0.1:8000/api/user/1/``` PUT change user info
 ```http://127.0.0.1:8000/api/user/```  POST create user
 ```http://127.0.0.1:8000/api/user/50/``` DELETE user method
