@@ -113,9 +113,6 @@ http://127.0.0.1:8000/api/order/
 ```
 DELETE order
 ```
-http://127.0.0.1:8000/api/order/38/```
- 
-
-
-
+http://127.0.0.1:8000/api/order/38/
+```
 
