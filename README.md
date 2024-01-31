@@ -13,6 +13,7 @@ The project allows users to:
 - Create a new author
 - View the list of registered users
 - Add a book as an order and delete it
+- You can also search for books by filtering 
 
 ## Installation
 
@@ -49,4 +50,6 @@ Run the Django application:
 python manage.py runserver
 docker-compose -p library up
 ```
+## API Endpoint 
+```http://127.0.0.1:8000/api/user/```
 
