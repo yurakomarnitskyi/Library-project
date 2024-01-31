@@ -51,14 +51,17 @@ python manage.py runserver
 docker-compose -p library up
 ```
 ## API Endpoint 
+# User Management:
 ```http://127.0.0.1:8000/api/user/``` GET user 
 ```http://127.0.0.1:8000/api/user/1/``` PUT change user info
 ```http://127.0.0.1:8000/api/user/```  POST create user
 ```http://127.0.0.1:8000/api/user/50/``` DELETE user method
+# Author Management:
 ```http://127.0.0.1:8000/api/author/``` GET author 
 ```http://127.0.0.1:8000/api/author/``` POST add new author
 ```http://127.0.0.1:8000/api/author/38/``` PUT change author info 
 ```http://127.0.0.1:8000/api/author/38/``` DELETE author
+# Book Management
 ```http://127.0.0.1:8000/api/book/``` GET book 
 ```http://127.0.0.1:8000/api/book/``` POST add new book
 ```http://127.0.0.1:8000/api/book/38/``` PUT change book info 
