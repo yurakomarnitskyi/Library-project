@@ -70,4 +70,26 @@ docker-compose -p library up
 ```http://127.0.0.1:8000/api/order/``` POST add new order
 ```http://127.0.0.1:8000/api/order/38/``` DELETE order
 
+User Management:
 
+GET user: http://127.0.0.1:8000/api/user/
+PUT change user info: http://127.0.0.1:8000/api/user/1/
+POST create user: http://127.0.0.1:8000/api/user/
+DELETE user method: http://127.0.0.1:8000/api/user/50/
+Author Management:
+
+GET author: http://127.0.0.1:8000/api/author/
+POST add new author: http://127.0.0.1:8000/api/author/
+PUT change author info: http://127.0.0.1:8000/api/author/38/
+DELETE author: http://127.0.0.1:8000/api/author/38/
+Book Management:
+
+GET book: http://127.0.0.1:8000/api/book/
+POST add new book: http://127.0.0.1:8000/api/book/
+PUT change book info: http://127.0.0.1:8000/api/book/38/
+DELETE book: http://127.0.0.1:8000/api/book/38/
+Order Management:
+
+GET order: http://127.0.0.1:8000/api/order/
+POST add new order: http://127.0.0.1:8000/api/order/
+DELETE order: http://127.0.0.1:8000/api/order/38/
